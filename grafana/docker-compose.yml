@@ -1,0 +1,14 @@
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-enterprise 
+    ports:
+      - "3000:3000/tcp"
+    environment:
+      TZ: 'America/Chicago'
+      GF_DEFAULT_INSTANCE_NAME: my-instance
+      GF_SECURITY_ADMIN_USER: owner
+      GF_SECURITY_ADMIN_PASSWORD: owner
+      GF_AUTH_GOOGLE_CLIENT_SECRET: newS3cretKey
+      GF_PLUGIN_GRAFANA_IMAGE_RENDERER_RENDERING_IGNORE_HTTPS_ERRORS: "true"
+    restart: unless-stopped
