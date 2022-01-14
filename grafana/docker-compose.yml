@@ -1,7 +1,7 @@
 services:
   grafana:
     container_name: grafana
-    image: grafana/grafana-enterprise 
+    image: grafana/grafana-enterprise
     ports:
       - "3000:3000/tcp"
     environment:
