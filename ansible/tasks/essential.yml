@@ -1,14 +1,4 @@
 ---
-- name: Update packages
-  apt:
-    update_cache: yes
-    upgrade: yes
-
-- name: Install essential packages
-  package:
-    name: "{{ packages }}"
-    state: latest
-
 - name: Disable SSH password auth
   lineinfile:
     dest: /etc/ssh/sshd_config
@@ -28,3 +18,22 @@
     name: sshd
     state: restarted
   when: sshd_config.changed
+
+- name: Update packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install packages
+  apt:
+    pkg:
+    - docker.io
+    - docker-compose
+    - vim
+
+- name: Clone a github repository
+  git:
+    repo: https://github.com/Jakub3628800/crossroads.git
+    dest: /home/crossroads
+    clone: yes
+    update: yes

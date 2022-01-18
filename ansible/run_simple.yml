@@ -1,7 +1,0 @@
----
-- name: Do shit
-  hosts: all
-  become: true
-
-  tasks:
-    - import_tasks: tasks/essential.yml

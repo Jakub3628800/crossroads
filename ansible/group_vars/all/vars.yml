@@ -1,5 +1,3 @@
 username: pi
 packages:
   - vim
-  - htop
-  - curl
