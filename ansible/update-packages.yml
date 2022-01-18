@@ -1,10 +1,10 @@
 ---
 - hosts: all
-  become: yes
+  become: true
   tasks:
     - name: Install packages
       apt:
         pkg:
-        - docker.io
-        - docker-compose
-        - vim
+          - docker.io
+          - docker-compose
+          - vim

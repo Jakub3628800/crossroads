@@ -13,7 +13,7 @@
     line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
     validate: "/usr/sbin/visudo -cf %s"
 
-- name : Restart SSH daemon
+- name: Restart SSH daemon
   service:
     name: sshd
     state: restarted
@@ -21,19 +21,19 @@
 
 - name: Update packages
   apt:
-    update_cache: yes
-    upgrade: yes
+    update_cache: true
+    upgrade: true
 
 - name: Install packages
   apt:
     pkg:
-    - docker.io
-    - docker-compose
-    - vim
+      - docker.io
+      - docker-compose
+      - vim
 
 - name: Clone a github repository
   git:
     repo: https://github.com/Jakub3628800/crossroads.git
     dest: /home/crossroads
-    clone: yes
-    update: yes
+    clone: true
+    update: true

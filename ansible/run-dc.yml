@@ -1,6 +1,7 @@
+---
 - name: Run using a project directory
   hosts: all
-  gather_facts: no
+  gather_facts: false
   tasks:
     - name: Tear down existing services
       community.docker.docker_compose:
@@ -16,8 +17,8 @@
 
     - name: Run `docker-compose up` again
       community.docker.docker_compose:
-          project_src: /home/crossroads/home-assistant
-          build: no
+        project_src: /home/crossroads/home-assistant
+        build: false
 
     - ansible.builtin.debug:
         var: output
@@ -28,8 +29,8 @@
     - name: Stop all services
       community.docker.docker_compose:
         project_src: /home/crossroads/home-assistant
-        build: no
-        stopped: yes
+        build: false
+        stopped: true
         register: output
 
     - ansible.builtin.debug:
@@ -42,8 +43,8 @@
     - name: Restart services
       community.docker.docker_compose:
         project_src: /home/crossroads/home-assistant
-        build: no
-        restarted: yes
+        build: false
+        restarted: true
         register: output
 
     - ansible.builtin.debug:
